@@ -8,6 +8,7 @@
 
    --pry-padding: 2em;
    --pry-radius: 3px;
+   --margin-bottom: 2rem;
 
    --debugger: 1px solid yellow;
 }
@@ -40,7 +41,7 @@ select {
    border: none;
    border-radius: var(--pry-radius);
    padding: 0.8em;
-   margin-bottom: 2rem;
+   margin-bottom: var(--margin-bottom);
 }
 
 input:not(.banner > input) {
@@ -48,7 +49,9 @@ input:not(.banner > input) {
 }
 
 select {
-   width: 60%;
+   width: 100%;
+   padding-right: 1.6em;
+   margin: 0;
 }
 
 select > option {
@@ -90,6 +93,7 @@ main {
 
 main > .get-country > .ctry-wrapper {
    position: relative;
+   width: 100%;
 }
 
 main > .get-country > .ctry-wrapper::before {
@@ -102,13 +106,32 @@ main > .get-country > .ctry-wrapper::before {
    /* background-color: red; */
 }
 
+main > .get-country > .select-wrapper {
+   position: relative;
+   width: 60%;
+   margin-bottom: var(--margin-bottom);
+}
+
+main > .get-country > .select-wrapper::after {
+   content: "";
+   position: absolute;
+   top: 50%;
+   right: 1em;
+   width: 10px;
+   height: 10px;
+   transform: translateY(-50%);
+   background-color: var(--White);
+   clip-path: polygon(100% 0%, 50% 100%, 0% 0%);
+   pointer-events: none;
+}
+
 main > .display {
    background-color: var(--Very-Dark-mode);
    padding: 0 var(--pry-padding);
 }
 
 main > .display > .display-wrapper {
-   margin-bottom: 2rem;
+   margin-bottom: var(--margin-bottom);
    background-color: var(--Dark-Blue);
    padding: 0 2em 2em 2em;
    border-radius: var(--pry-radius);
@@ -133,30 +156,29 @@ main > .display > .display-wrapper > .display-list .title {
 /* Media Queries */
 
 @media only screen and (min-width: 700px) {
-   /* input,
-   select {
-      width: initial;
-      margin: 0;
-   } */
 
    .banner {
       padding: 2em 6em;
    }
 
-    main > .get-country {
-       display: grid;
-       grid-template-columns: 30% 10%;
-       justify-content: space-between;
-       margin: 2rem 0;
-       padding: 0 var(--pry-padding);
-    }
+   main > .get-country {
+      display: grid;
+      grid-template-columns: 30% 30%;
+      margin: 2rem 0;
+      padding: 0 var(--pry-padding);
+      gap: 470px;
+   }
 
-    main > .display {
+   main > .get-country > .select-wrapper {
+      justify-self: end;
+   }
+
+   main > .display {
       min-height: 350px;
       display: grid;
       gap: 50px;
       grid-template-columns: repeat(4, 1fr);
-    }
+   }
 
 }
 

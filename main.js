@@ -1,5 +1,4 @@
 const display = document.querySelector(".display");
-// const ctryInput = document.getElementById("ctry");
 
 window.addEventListener("load", getData);
 
@@ -32,7 +31,7 @@ function getData() {
             // Add data into the elements created;
             flag.src = country.flag;
             name.innerHTML = country.name;
-            population.innerHTML = `<span class="title">Population:</span>  <span>${country.population}</span>`;
+            population.innerHTML = `<span class="title">Population:</span>  <span>${country.population.toLocaleString()}</span>`;
             region.innerHTML = `<span class="title">Region:</span>  <span>${country.region}</span>`;
             capital.innerHTML = `<span class="title">Capital:</span>  <span>${country.capital}`;
             currency.innerHTML = `<span class="title">Currency:</span> <span>${country["currencies"][0]["name"]}</span>`;
@@ -55,6 +54,7 @@ function getData() {
       });
 
       countrySearch();
+      regionSearch();
 }
 
 // Filter by individual country
@@ -67,24 +67,38 @@ function countrySearch() {
       const ctryClone = ctryInput.value.toLowerCase();
       const names = document.querySelectorAll("main h1");
       const content = document.querySelector(".display-wrapper");
+
+      // Loop through each country name to see if it contains user search
       names.forEach(name => {
-      const nameConverted = name.textContent.toLowerCase();
-      if(nameConverted.indexOf(ctryClone) !== -1) {
-         name.parentElement.parentElement.style.display = "block";
-      } else {
-         name.parentElement.parentElement.style.display = "none";
-      }
+         const nameConverted = name.textContent.toLowerCase();
+         if(nameConverted.indexOf(ctryClone) !== -1) {
+            name.parentElement.parentElement.style.display = "block";
+         } else {
+            name.parentElement.parentElement.style.display = "none";
+         }
       });  
    });
 }
 
 // Filter by region
 
-/* function regionSearch() {
-   const allRegions = document.querySelector("select");
+function regionSearch() {
+   const allRegions = document.getElementById("all-regions");
+
+   // Add Event listener to the select object
    allRegions.addEventListener("change", e => {
-      const region = document.querySelectorAll(".country-region");
-      const regionResult = region.lastChild.textContent;
-   })
+      const regions = document.querySelectorAll(".country-region span:nth-child(2)");
+      const regionData = allRegions.value;
+      
+      // Loop through each regions to see if it matches select value
+      regions.forEach(region => {
+         const regionResult = region.textContent;
+         if(regionResult == regionData) {
+            region.parentElement.parentElement.parentElement.style.display = "block";
+         } else {
+            region.parentElement.parentElement.parentElement.style.display = "none";
+         }
+      }); 
+   });
 }
- */
+
