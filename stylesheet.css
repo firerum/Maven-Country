@@ -1,0 +1,164 @@
+:root {
+   --Dark-Blue: hsl(209, 23%, 22%);;
+   --Very-Dark-mode: hsl(207, 26%, 17%);
+   --Very-Dark-Blue: hsl(200, 15%, 8%);
+   --Dark-Gray: hsl(0, 0%, 52%);
+   --Very-Light-Gray: hsl(0, 0%, 98%);
+   --White: hsl(0, 0%, 100%);
+
+   --pry-padding: 2em;
+   --pry-radius: 3px;
+
+   --debugger: 1px solid yellow;
+}
+
+*,
+*::before,
+*::after {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: "nunito sans", sans-serif;
+   font-size: 12px;
+   color: var(--White);
+}
+
+img {
+   max-width: 100%; 
+}
+
+input,
+select {
+   appearance: none;
+   -webkit-appearance: none;
+   font-family: inherit;
+   background-color: var(--Dark-Blue);
+   color: var(--Very-Light-Gray);
+   border: none;
+   border-radius: var(--pry-radius);
+   padding: 0.8em;
+   margin-bottom: 2rem;
+}
+
+input:not(.banner > input) {
+   width: 100%;
+}
+
+select {
+   width: 60%;
+}
+
+select > option {
+   appearance: none;
+   -webkit-appearance: none;
+}
+
+.container {
+   background-color: var(--Very-Dark-mode);
+}
+
+
+/* Header Styles */
+
+.banner {
+   background-color: var(--Dark-Blue);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: var(--pry-padding);
+   font-size: 8px;
+}
+
+.banner > label {
+   font-size: 14px
+}
+
+.banner > label > input {
+   display: none;
+}
+
+
+/* Main Styles */
+
+main {
+   min-height: 100vh;
+   padding: var(--pry-padding);
+}
+
+main > .get-country > .ctry-wrapper {
+   position: relative;
+}
+
+main > .get-country > .ctry-wrapper::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 20px;
+   height: 10px;
+   /* background-color: red; */
+}
+
+main > .display {
+   background-color: var(--Very-Dark-mode);
+   padding: 0 var(--pry-padding);
+}
+
+main > .display > .display-wrapper {
+   margin-bottom: 2rem;
+   background-color: var(--Dark-Blue);
+   padding: 0 2em 2em 2em;
+   border-radius: var(--pry-radius);
+   overflow: hidden;
+}
+
+main > .display > .display-wrapper > .flag-container {
+   margin: 0 -2em;
+}
+
+main > .display > .display-wrapper > .display-list h1 {
+   padding: 1em 0;
+}
+
+main > .display > .display-wrapper > .display-list .title {
+   display: inline-block;
+   font-weight: 700;
+   margin: 0 4px 4px 0;
+}
+
+
+/* Media Queries */
+
+@media only screen and (min-width: 700px) {
+   /* input,
+   select {
+      width: initial;
+      margin: 0;
+   } */
+
+   .banner {
+      padding: 2em 6em;
+   }
+
+    main > .get-country {
+       display: grid;
+       grid-template-columns: 30% 10%;
+       justify-content: space-between;
+       margin: 2rem 0;
+       padding: 0 var(--pry-padding);
+    }
+
+    main > .display {
+      min-height: 350px;
+      display: grid;
+      gap: 50px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+
+
