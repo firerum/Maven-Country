@@ -1,4 +1,6 @@
 const display = document.querySelector(".display");
+const toggler = document.querySelector("label");
+const container = document.querySelector(".container");
 
 window.addEventListener("load", getData);
 
@@ -43,7 +45,6 @@ function getData() {
             displayList.appendChild(region);
             displayList.appendChild(capital);
             displayList.appendChild(currency);
-
             wrapper.appendChild(flagContainer);
             wrapper.appendChild(displayList);
             display.appendChild(wrapper);
@@ -81,7 +82,6 @@ function countrySearch() {
 }
 
 // Filter by region
-
 function regionSearch() {
    const allRegions = document.getElementById("all-regions");
 
@@ -93,12 +93,25 @@ function regionSearch() {
       // Loop through each regions to see if it matches select value
       regions.forEach(region => {
          const regionResult = region.textContent;
-         if(regionResult == regionData) {
-            region.parentElement.parentElement.parentElement.style.display = "block";
+         if(regionData == "") {
+            region.closest(".display-wrapper").style.display = "block";
+         } else if(regionResult == regionData) {
+            region.closest(".display-wrapper").style.display = "block";
          } else {
-            region.parentElement.parentElement.parentElement.style.display = "none";
+            region.closest(".display-wrapper").style.display = "none";
          }
       }); 
    });
 }
+
+// Toggle theme
+toggler.addEventListener("click", function(e) {
+   const switcher = document.getElementById("toggler");
+
+   if(switcher.checked) {
+      document.documentElement.classList.toggle("light-mode");
+
+      console.log("checked");
+   }
+});
 

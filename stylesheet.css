@@ -1,5 +1,5 @@
 :root {
-   --Dark-Blue: hsl(209, 23%, 22%);;
+   --Dark-Blue: hsl(209, 23%, 22%);
    --Very-Dark-mode: hsl(207, 26%, 17%);
    --Very-Dark-Blue: hsl(200, 15%, 8%);
    --Dark-Gray: hsl(0, 0%, 52%);
@@ -11,6 +11,13 @@
    --margin-bottom: 2rem;
 
    --debugger: 1px solid yellow;
+}
+
+:root.light-mode {
+   --Dark-Blue: hsl(0, 0%, 100%);
+   --Very-Dark-mode: hsl(0, 0%, 98%);
+   --White: hsl(200, 15%, 8%);
+   --Very-Light-Gray: hsl(200, 15%, 8%);
 }
 
 *,
@@ -76,7 +83,8 @@ select > option {
 }
 
 .banner > label {
-   font-size: 14px
+   font-size: 14px;
+   cursor: pointer;
 }
 
 .banner > label > input {
@@ -151,6 +159,7 @@ main > .display > .display-wrapper > .display-list .title {
    font-weight: 700;
    margin: 0 4px 4px 0;
 }
+
 
 
 /* Media Queries */
