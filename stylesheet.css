@@ -47,8 +47,7 @@ select {
    color: var(--Very-Light-Gray);
    border: none;
    border-radius: var(--pry-radius);
-   padding: 0.8em;
-   margin-bottom: var(--margin-bottom);
+   padding: 0.8em 0.8em 0.8em 4em;
 }
 
 input:not(.banner > input) {
@@ -57,7 +56,7 @@ input:not(.banner > input) {
 
 select {
    width: 100%;
-   padding-right: 1.6em;
+   padding: 0.8em 1.6em;
    margin: 0;
 }
 
@@ -85,10 +84,18 @@ select > option {
 .banner > label {
    font-size: 14px;
    cursor: pointer;
+   position: relative;
 }
 
 .banner > label > input {
    display: none;
+}
+
+.banner > label > i {
+   position: absolute;
+   left: -20px;
+   top: 50%;
+   transform: translateY(-50%);
 }
 
 
@@ -102,16 +109,17 @@ main {
 main > .get-country > .ctry-wrapper {
    position: relative;
    width: 100%;
+   margin-bottom: var(--margin-bottom);
 }
 
-main > .get-country > .ctry-wrapper::before {
-   content: "";
+main > .get-country > .ctry-wrapper > i{
    position: absolute;
-   top: 0;
+   top: 50%;
    left: 0;
-   width: 20px;
-   height: 10px;
-   /* background-color: red; */
+   transform: translateY(-50%);
+   font-size: 18px;
+   padding-left: 1em;
+   pointer-events: none;
 }
 
 main > .get-country > .select-wrapper {
