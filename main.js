@@ -108,10 +108,9 @@ function regionSearch() {
 toggler.addEventListener("click", function(e) {
    const switcher = document.getElementById("toggler");
 
+   // change class if checkbox is checked
    if(switcher.checked) {
       document.documentElement.classList.toggle("light-mode");
-
-      console.log("checked");
    }
 });
 
