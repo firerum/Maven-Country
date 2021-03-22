@@ -171,32 +171,60 @@ main > .display > .display-wrapper > .display-list .title {
 
 
 /* Media Queries */
+@media (min-width: 558px) and (max-width: 849px) {
+   main > .get-country {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 var(--pry-padding);
+   }
 
-@media only screen and (min-width: 700px) {
+   main .get-country > .ctry-wrapper {
+      width: 200px;
+   }
 
+   main > .get-country > .select-wrapper {
+      width: 150px;
+   }
+
+   main > .display {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+   }
+}
+
+@media only screen and (min-width: 850px) {
    .banner {
       padding: 2em 6em;
    }
 
    main > .get-country {
-      display: grid;
-      grid-template-columns: 30% 30%;
-      margin: 2rem 0;
+      display: flex;
+      justify-content: space-between;
       padding: 0 var(--pry-padding);
-      gap: 470px;
+   }
+
+   main .get-country > .ctry-wrapper {
+      width: 300px;
    }
 
    main > .get-country > .select-wrapper {
-      justify-self: end;
+      width: 150px;
    }
 
    main > .display {
       min-height: 350px;
       display: grid;
       gap: 50px;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
    }
 
+}
+
+@media (min-width: 1180px) {
+   main > .display {
+      grid-template-columns: repeat(4, 1fr);
+   }
 }
 
 
